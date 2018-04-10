@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:security="http://www.springframework.org/schema/security"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+          http://www.springframework.org/schema/security
+          http://www.springframework.org/schema/security/spring-security-3.0.3.xsd">
+ 	
+ 	<bean id="emp1" class="com.scp.lookupmethod.Employee" scope="singleton">
+		<property name="id" value="101" />
+		<property name="name" value="Amol" />
+		<lookup-method name="getAddressData" bean="ad1"/>
+	</bean>
+	
+	<bean id="ad1" class="com.scp.lookupmethod.Address" scope="prototype" >
+		<property name = "pinCode" value = "410218"/> 
+		<property name = "city" value = "Kalamboli, Navi mumbai"/> 
+	</bean>
+
+</beans>
